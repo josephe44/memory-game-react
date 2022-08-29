@@ -26,6 +26,9 @@ function App() {
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
+
+    setChoiceOne(null);
+    setChoiceTwo(null);
     setCards(shuffledCards);
     setTurns(0);
   };
@@ -66,6 +69,11 @@ function App() {
     setDisabled(false);
   };
 
+  // start a new game onLoad
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
   return (
     <div className="App">
       <h1>Memory Game</h1>
@@ -82,6 +90,7 @@ function App() {
           />
         ))}
       </div>
+      <p>Turns: {turns}</p>
     </div>
   );
 }
