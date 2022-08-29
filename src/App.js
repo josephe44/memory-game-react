@@ -2,12 +2,12 @@ import { useState } from "react";
 import "./App.css";
 
 const cardImages = [
-  { src: "/public/img/panda-dancer.jpg" },
-  { src: "/public/img/panda-fighter.jpg" },
-  { src: "/public/img/panda-gamer.jpg" },
-  { src: "/public/img/panda-happy.jpg" },
-  { src: "/public/img/panda-lover.jpg" },
-  { src: "/public/img/panda-musician.jpg" },
+  { src: "/img/panda-dancer.jpg" },
+  { src: "/img/panda-fighter.jpg" },
+  { src: "/img/panda-gamer.jpg" },
+  { src: "/img/panda-happy.jpg" },
+  { src: "/img/panda-lover.jpg" },
+  { src: "/img/panda-musician.jpg" },
 ];
 
 function App() {
@@ -32,6 +32,21 @@ function App() {
     <div className="App">
       <h1>Memory Game</h1>
       <button onClick={shuffleCards}>New Game</button>
+
+      <div className="card-grid">
+        {cards.map((card) => (
+          <div className="card" s key={card.id}>
+            <div>
+              <img className="front" src={card.src} alt="card front" />
+              <img
+                className="back"
+                src="/img/image-cover.jpg"
+                alt="card back"
+              />
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
